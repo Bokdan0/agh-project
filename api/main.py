@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-import customers
+from api import customers
 
 app = FastAPI()
 
@@ -20,3 +20,4 @@ app.add_middleware(
 )
 
 app.include_router(customers.router, prefix="/customers")
+#hakowanie pentagonu: python -m uvicorn api.main:app --reload
