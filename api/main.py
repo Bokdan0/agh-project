@@ -20,3 +20,7 @@ app.add_middleware(
 
 app.include_router(customers.router, prefix="/customers")
 #hakowanie pentagonu: python -m uvicorn api.main:app --reload
+
+#najpierw odpala się backend
+#potem na drugim terminalu wchodzi cd fronted
+#i na koniec odpala to komendą npm run dev
