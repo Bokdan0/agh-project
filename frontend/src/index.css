@@ -78,7 +78,7 @@
 }
 /* style */
 
-.addCustomerForm {
+.dodajKlientaDoFormularza {
   display: flex;
   padding: 2rem;
   flex-direction: column;
@@ -87,22 +87,22 @@
   gap: 1.25rem;
 }
 
-.addCustomerForm label {
+.dodajKlientaDoFormularza label {
   font-size: 16px;
   font-weight: 600;
 }
 
-.addCustomerForm input {
+.dodajKlientaDoFormularza input {
   padding: 5px;
   border-radius: 0.125rem;
   border-width: 1px;
 }
 
-.addCustomerForm input:focus {
+.dodajKlientaDoFormularza input:focus {
   outline: none;
 }
 
-.addCustomerForm button {
+.dodajKlientaDoFormularza button {
   width: 160px;
   padding: 8px;
   border-radius: 0.125rem;
@@ -110,7 +110,7 @@
   color: white;
 }
 
-.customersList {
+.listaKlientow {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -120,7 +120,7 @@
   list-style-type: none;
 }
 
-.customersList li {
+.listaKlientow li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -129,6 +129,6 @@
   border-width: 1px;
 }
 
-.customersList li p {
+.listaKlientow li p {
   font-size: 16px;
 }

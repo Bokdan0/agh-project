@@ -4,40 +4,39 @@ import { UserNav } from "./CustomersPage/components/UserNav";
 import { useState } from "react";
 
 export const AddCustomerPage = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [Imie, setName] = useState("");
+  const [Nazwisko, setSurname] = useState("");
+  const [Email, setEmail] = useState("");
+  const [NumerTelefonu, setPhoneNumber] = useState("");
 
-  const getName = (event) => {
+  const daneImie = (event) => {
     setName(event.target.value);
   };
 
-  const getSurname = (event) => {
+  const daneNazwisko = (event) => {
     setSurname(event.target.value);
   };
-  const getEmail = (event) => {
+  const danyEmail = (event) => {
     setEmail(event.target.value);
   };
-  const getPhoneNumber = (event) => {
+  const danyNumerTelefonu = (event) => {
     setPhoneNumber(event.target.value);
   };
 
   const daneDoFormularza = async (e) => {
     console.log("mamy problem")
     e.preventDefault();
-    if (name === "") return;
-    if (email === "") return;
-    if (phoneNumber === "" || phoneNumber.length <9 || phoneNumber.length >12) return;
+    if (Imie === "") return;
+    if (Email === "") return;
+    if (NumerTelefonu === "" || NumerTelefonu.length <9 || NumerTelefonu.length >12) return;
 
     const customerData = {
-      name: name,
-      surname: surname,
-      email: email,
-      phone_number: phoneNumber,
+      name: Imie,
+      surname: Nazwisko,
+      email: Email,
+      phone_number: NumerTelefonu,
     };
 
-    //sposób 1
     const response = await fetch("http://127.0.0.1:8000/customers", {
       method: "POST",
       body: JSON.stringify(customerData),
@@ -45,15 +44,6 @@ export const AddCustomerPage = () => {
         "Content-Type": "application/json",
       },
     });
-
-    // sposób 2
-    // const response = fetch("http://127.0.0.1:8000/customers", {
-    //   method: "POST",
-    //   body: JSON.stringify(customerData),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
 
     console.log(response);
 
@@ -78,35 +68,30 @@ export const AddCustomerPage = () => {
         </div>
         <div className="hidden h-full flex-1 flex-col space-y-8 md:flex"></div>
       </div>
-      <form  className="addCustomerForm">
-        {/* onSubmit={submitFormHandler} */}
-        <label>name</label>
+      <form onSubmit={daneDoFormularza} className="dodajKlientaDoFormularza">
+        <label>Name</label>
         <input
-          onChange={getName}
-          value={name}
-          placeholder="John"
-          type="text"
+          onChange={daneImie}
+          value={Imie}
+          placeholder="Grzegorz"
         ></input>
-        <label>surname</label>
+        <label>Surname</label>
         <input
-          onChange={getSurname}
-          value={surname}
-          placeholder="Doe"
-          type="text"
+          onChange={daneNazwisko}
+          value={Nazwisko}
+          placeholder="Brzęczyszczykiewicz"
         ></input>
         <label>Email</label>
         <input
-          onChange={getEmail}
-          value={email}
-          placeholder="emial@email.com"
-          type="text"
+          onChange={danyEmail}
+          value={Email}
+          placeholder="Grzegorz@Brzęczyszczykiewicz.pl"
         ></input>
-        <label>PhoneNumber</label>
+        <label>Phone Number</label>
         <input
-          onChange={getPhoneNumber}
-          value={phoneNumber}
-          placeholder="123 456 789"
-          type="text"
+          onChange={danyNumerTelefonu}
+          value={NumerTelefonu}
+          placeholder="000 021 370"
         ></input>
         <button type="submit" onClick={daneDoFormularza}>Submit</button>
       </form>
